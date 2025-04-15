@@ -1,0 +1,1594 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+vALU
+Z0 !s110 1732673391
+!i10b 1
+!s100 ]U<GJMK=obQ>0dJhi21<80
+ICz;0^fB[iz0[QB3Af9UeK0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03
+Z3 w1732527892
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/alu.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/alu.v
+Z4 L0 24
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1732673391.000000
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/alu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/alu.v|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+n@a@l@u
+vALU_TB
+Z9 !s110 1732673390
+!i10b 1
+!s100 g;m3hM1CUA7:8P[=08]7g3
+I=eJe2kzkSOkIjQ[a6cjSl2
+R1
+R2
+Z10 w1727822181
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/alu_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/alu_tb.v
+Z11 L0 14
+R5
+r1
+!s85 0
+31
+Z12 !s108 1732673390.000000
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/alu_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/alu_tb.v|
+!i113 1
+R7
+R8
+n@a@l@u_@t@b
+vAND32_2x1
+R0
+!i10b 1
+!s100 i?1Kg:aXYf@o4gW`27jW20
+IR@P:Md2e]KY<fSazmMKHD1
+R1
+R2
+R3
+Z13 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic_32_bit.v
+Z14 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic_32_bit.v
+L0 39
+R5
+r1
+!s85 0
+31
+R6
+Z15 !s107 C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic_32_bit.v|
+Z16 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic_32_bit.v|
+!i113 1
+R7
+R8
+n@a@n@d32_2x1
+vAND32_2x1_TB
+R0
+!i10b 1
+!s100 8d1f1EcJAU]Ch]lY3k20f1
+IS`0kD^>84TGCR`K7XKTi_2
+R1
+R2
+R10
+Z17 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_32_bit_tb.v
+Z18 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_32_bit_tb.v
+Z19 L0 49
+R5
+r1
+!s85 0
+31
+R6
+Z20 !s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_32_bit_tb.v|
+Z21 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_32_bit_tb.v|
+!i113 1
+R7
+R8
+n@a@n@d32_2x1_@t@b
+vBARREL_SHIFTER32
+R0
+!i10b 1
+!s100 ]h0TM^Z6Y=;UhfSOifBNj3
+IglHk=j9<0a8MThdIX;NS42
+R1
+R2
+R3
+Z22 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/barrel_shifter.v
+Z23 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/barrel_shifter.v
+R19
+R5
+r1
+!s85 0
+31
+R6
+Z24 !s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/barrel_shifter.v|
+Z25 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/barrel_shifter.v|
+!i113 1
+R7
+R8
+n@b@a@r@r@e@l_@s@h@i@f@t@e@r32
+vBARREL_SHIFTER32_TB
+R9
+!i10b 1
+!s100 ^fOdgU]=l<laLRO1WCUQ=3
+IJ>L]8nEPXacS_Ih6P26VH2
+R1
+R2
+w1728509762
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/barrel_shifter_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/barrel_shifter_tb.v
+R11
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/barrel_shifter_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/barrel_shifter_tb.v|
+!i113 1
+R7
+R8
+n@b@a@r@r@e@l_@s@h@i@f@t@e@r32_@t@b
+vBUF32_1x1
+R0
+!i10b 1
+!s100 CEQFeMTgaMPT`PhlPK0RP3
+Iz7B;YDO2]QR0UPK:afhD61
+R1
+R2
+R3
+Z26 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mult.v
+Z27 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mult.v
+Z28 L0 23
+R5
+r1
+!s85 0
+31
+R6
+Z29 !s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mult.v|
+Z30 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mult.v|
+!i113 1
+R7
+R8
+n@b@u@f32_1x1
+vBUF64_1x1
+R0
+!i10b 1
+!s100 P;D=RJkR5Ui]7]lX6ULg>3
+ICJKQ4Ql=?91>nQi;EAc732
+R1
+R2
+R3
+R26
+R27
+Z31 L0 42
+R5
+r1
+!s85 0
+31
+R6
+R29
+R30
+!i113 1
+R7
+R8
+n@b@u@f64_1x1
+vCLK_GENERATOR
+R0
+!i10b 1
+!s100 I`I=T4aaeE09lSRDFRN971
+ICk>LLM<3dD[Lo?Z[[QMnZ2
+R1
+R2
+R3
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/clk_gen.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/clk_gen.v
+Z32 L0 16
+R5
+r1
+!s85 0
+31
+R6
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/clk_gen.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/clk_gen.v|
+!i113 1
+R7
+R8
+n@c@l@k_@g@e@n@e@r@a@t@o@r
+vCONTROL_UNIT
+R0
+!i10b 1
+!s100 YK9gM^W_1k^Nl_ZHe`3Og3
+IKY>c?9g]S]63[9=7FG]330
+R1
+R2
+Z33 w1732598333
+Z34 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/control_unit.v
+Z35 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/control_unit.v
+R28
+R5
+r1
+!s85 0
+31
+R6
+Z36 !s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/control_unit.v|
+Z37 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/control_unit.v|
+!i113 1
+R7
+R8
+n@c@o@n@t@r@o@l_@u@n@i@t
+vD_FF
+R0
+!i10b 1
+!s100 =C;Ag@3WWN>4`Ub>J@:zP3
+IQN8BGD3U]c96SN87]4i<>1
+R1
+R2
+R3
+Z38 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic.v
+Z39 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic.v
+L0 124
+R5
+r1
+!s85 0
+31
+R6
+Z40 !s107 C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic.v|
+Z41 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/logic.v|
+!i113 1
+R7
+R8
+n@d_@f@f
+vD_FF_TB
+R0
+!i10b 1
+!s100 9<3?<fgef=4RmNonYk[9I2
+ICk3_?Q7cE5Gb8m]C4A5T;3
+R1
+R2
+R10
+Z42 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_tb.v
+Z43 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_tb.v
+L0 143
+R5
+r1
+!s85 0
+31
+R6
+Z44 !s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_tb.v|
+Z45 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/logic_tb.v|
+!i113 1
+R7
+R8
+n@d_@f@f_@t@b
+vD_LATCH
+R0
+!i10b 1
+!s100 Q4bPg1V_4^>L0fRTM^Xn?0
+IiO18?Veh7=U@@@?P2H8Sz0
+R1
+R2
+R3
+R38
+R39
+L0 146
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@d_@l@a@t@c@h
+vD_LATCH32
+R0
+!i10b 1
+!s100 XmPO0jLY^8>nU`@7USh=H1
+I268d=Z^8eKkUX65eQ^zFU0
+R1
+R2
+Z46 w1732600036
+Z47 8C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\data_path.v
+Z48 FC:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\data_path.v
+L0 316
+R5
+r1
+!s85 0
+31
+R6
+Z49 !s107 prj_definition.v|C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\data_path.v|
+Z50 !s90 -reportprogress|300|-work|work|-stats=none|C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\data_path.v|
+!i113 1
+R7
+R8
+n@d_@l@a@t@c@h32
+vD_LATCH_TB
+R0
+!i10b 1
+!s100 7?Qk]UR1DZXZX:eEG3I5M3
+IZoAlUh0:6^;;0kSbmJ2;T0
+R1
+R2
+R10
+R42
+R43
+Z51 L0 187
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@d_@l@a@t@c@h_@t@b
+vDA_VINCI
+R0
+!i10b 1
+!s100 daaTE@@o84`W9_S4X0zN70
+ICK^UB9[22JjiFaR^N@`1@1
+R1
+R2
+R3
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/da_vinci.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/da_vinci.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/da_vinci.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/da_vinci.v|
+!i113 1
+R7
+R8
+n@d@a_@v@i@n@c@i
+vDA_VINCI_TB
+R0
+!i10b 1
+!s100 UbbR0ZH]Y>Q_Z`=`j[U3P1
+Imng2CfFeUmTb6NWZ9a[Em0
+R1
+R2
+R10
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/da_vinci_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/da_vinci_tb.v
+R4
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/da_vinci_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/da_vinci_tb.v|
+!i113 1
+R7
+R8
+n@d@a_@v@i@n@c@i_@t@b
+vDATA_PATH
+R0
+!i10b 1
+!s100 Ng[HQl[V3WV<J`c6[X^cH3
+Id7`fVIV:ZQ1DGGzU>VX9e1
+R1
+R2
+R46
+R47
+R48
+L0 20
+R5
+r1
+!s85 0
+31
+R6
+R49
+R50
+!i113 1
+R7
+R8
+n@d@a@t@a_@p@a@t@h
+vDECODER_2x4
+R0
+!i10b 1
+!s100 DN=<PK0090YMgnJ3`0GVl0
+I?B@^cDlUKY?QJ>[RUmNPN0
+R1
+R2
+R3
+R38
+R39
+L0 273
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@d@e@c@o@d@e@r_2x4
+vDECODER_3x8
+R0
+!i10b 1
+!s100 >5YBOHTjHQ?2k<7?n=Qbi2
+I<8zXDiJ?@aIb[h=_G@bki0
+R1
+R2
+R3
+R38
+R39
+L0 244
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@d@e@c@o@d@e@r_3x8
+vDECODER_4x16
+R0
+!i10b 1
+!s100 6=Y:noKVc@Q4GkMeJaemG3
+Ik1f]DfHzLf55TGiH3[dAb0
+R1
+R2
+R3
+R38
+R39
+L0 215
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@d@e@c@o@d@e@r_4x16
+vDECODER_5x32
+R0
+!i10b 1
+!s100 :1d>><?SoKB30KT5h^`am3
+I3hb01AJfS=lFGLQAaf[aJ0
+R1
+R2
+R3
+R38
+R39
+R51
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@d@e@c@o@d@e@r_5x32
+vDECODER_5x32_TB
+R0
+!i10b 1
+!s100 Z;SD0C`dARMjDY^dzdESb2
+I:MQcO4h4AONf?:75OjUfa3
+R1
+R2
+R10
+R42
+R43
+Z52 L0 21
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@d@e@c@o@d@e@r_5x32_@t@b
+vFULL_ADDER
+R0
+!i10b 1
+!s100 O;4RA24GBTL6Ydb:bK_1E1
+IXXh:c>89WPk9LQ?]PnOdX0
+R1
+R2
+R3
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/full_adder.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/full_adder.v
+L0 22
+R5
+r1
+!s85 0
+31
+R6
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/full_adder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/full_adder.v|
+!i113 1
+R7
+R8
+n@f@u@l@l_@a@d@d@e@r
+vFULL_ADDER_TB
+R0
+!i10b 1
+!s100 >=TH0BmdO?^mFnU<EPIAb2
+I``oo[12N?iCVTMUU57?S83
+R1
+R2
+w1727838592
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/full_adder_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/full_adder_tb.v
+R11
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/full_adder_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/full_adder_tb.v|
+!i113 1
+R7
+R8
+n@f@u@l@l_@a@d@d@e@r_@t@b
+vHALF_ADDER
+R0
+!i10b 1
+!s100 lGWE_7NRi_?nA_@A?1RLN1
+IKLlBfM?GQ3DedFz^ZEPHR2
+R1
+R2
+R3
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/half_adder.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/half_adder.v
+R52
+R5
+r1
+!s85 0
+31
+R6
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/half_adder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/half_adder.v|
+!i113 1
+R7
+R8
+n@h@a@l@f_@a@d@d@e@r
+vHALF_ADDER_TB
+R0
+!i10b 1
+!s100 0j8Fa>cXFLgAAJfQHTZ7I3
+IJ;H=Em^G8g@EmNWFHV>4a3
+R1
+R2
+w1727838475
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/half_adder_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/half_adder_tb.v
+R11
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/half_adder_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/half_adder_tb.v|
+!i113 1
+R7
+R8
+n@h@a@l@f_@a@d@d@e@r_@t@b
+vINSTRUCTION_COPY32_1x1
+!s110 1732555540
+!i10b 1
+!s100 z9fWESQ8@N]O;LFD<0hI;0
+IU8BO9A8A?:D?@4B39HY;02
+R1
+R2
+w1732555485
+R47
+R48
+L0 329
+R5
+r1
+!s85 0
+31
+!s108 1732555540.000000
+R49
+R50
+!i113 1
+R7
+R8
+n@i@n@s@t@r@u@c@t@i@o@n_@c@o@p@y32_1x1
+vINV32_1x1
+R0
+!i10b 1
+!s100 MDKc>;GjecNVHL180zR4A3
+I5K`BdmoHEFURM2D?E?2`C1
+R1
+R2
+R3
+R13
+R14
+L0 60
+R5
+r1
+!s85 0
+31
+R6
+R15
+R16
+!i113 1
+R7
+R8
+n@i@n@v32_1x1
+vINV32_1x1_TB
+R0
+!i10b 1
+!s100 4]mUI;i9^L;0a4KC6^@HD2
+IQiIP7A^meMI?ZZ[?F_a[o3
+R1
+R2
+R10
+R17
+R18
+L0 81
+R5
+r1
+!s85 0
+31
+R6
+R20
+R21
+!i113 1
+R7
+R8
+n@i@n@v32_1x1_@t@b
+vMEM_64MB_TB
+R9
+!i10b 1
+!s100 UaD^Y5SC4F=UNCQ_=8GTn0
+IjYmz1S3]`ZC=na`dh<<Q81
+R1
+R2
+R10
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mem_64MB_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mem_64MB_tb.v
+R28
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mem_64MB_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mem_64MB_tb.v|
+!i113 1
+R7
+R8
+n@m@e@m_64@m@b_@t@b
+vMEMORY_64MB
+R0
+!i10b 1
+!s100 [HnJUC8QNEk>j6FK_9bcB3
+IG=0jLWF06cD2jd5h?4dZ]1
+R1
+R2
+R3
+Z53 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/memory.v
+Z54 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/memory.v
+L0 66
+R5
+r1
+!s85 0
+31
+R6
+Z55 !s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/memory.v|
+Z56 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/memory.v|
+!i113 1
+R7
+R8
+n@m@e@m@o@r@y_64@m@b
+vMEMORY_WRAPPER
+R0
+!i10b 1
+!s100 JbW=66C9AYZiFCAKCdPGk2
+IiBIGH@X]]aoYWNnC^8zKc3
+R1
+R2
+R3
+R53
+R54
+L0 26
+R5
+r1
+!s85 0
+31
+R6
+R55
+R56
+!i113 1
+R7
+R8
+n@m@e@m@o@r@y_@w@r@a@p@p@e@r
+vMULT32
+R0
+!i10b 1
+!s100 [RZT:6MlZ;JaT=4KIZ@EZ2
+Im_MDVb?V8ib3I9M>B=39<3
+R1
+R2
+R3
+R26
+R27
+L0 82
+R5
+r1
+!s85 0
+31
+R6
+R29
+R30
+!i113 1
+R7
+R8
+n@m@u@l@t32
+vMULT32_U
+R0
+!i10b 1
+!s100 Uo93omIhe;6N3`T7[UmC33
+I9;c3;Gii0VB1@Ggbje@c^1
+R1
+R2
+R3
+R26
+R27
+L0 121
+R5
+r1
+!s85 0
+31
+R6
+R29
+R30
+!i113 1
+R7
+R8
+n@m@u@l@t32_@u
+vMULT_TB
+R9
+!i10b 1
+!s100 APeBP7@Sl6JTFTkI=:Pdh3
+I`[EiLVNoKSfAci0DF:6za0
+R1
+R2
+R10
+Z57 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mult_tb.v
+Z58 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mult_tb.v
+Z59 L0 48
+R5
+r1
+!s85 0
+31
+R12
+Z60 !s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mult_tb.v|
+Z61 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mult_tb.v|
+!i113 1
+R7
+R8
+n@m@u@l@t_@t@b
+vMULT_U_TB
+R9
+!i10b 1
+!s100 6@Ed1kV4B_[P5z3EaS:CT0
+Ii]IC=iNS`Zg3]:MaDdIX@1
+R1
+R2
+R10
+R57
+R58
+R11
+R5
+r1
+!s85 0
+31
+R12
+R60
+R61
+!i113 1
+R7
+R8
+n@m@u@l@t_@u_@t@b
+vMUX1_2x1
+R0
+!i10b 1
+!s100 g^mTK@0@oX:Hj1]1G]fl13
+IBdg=HZ[=XMl;8LhAO;Qaj3
+R1
+R2
+R3
+Z62 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mux.v
+Z63 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mux.v
+L0 150
+R5
+r1
+!s85 0
+31
+R6
+Z64 !s107 C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mux.v|
+Z65 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/mux.v|
+!i113 1
+R7
+R8
+n@m@u@x1_2x1
+vMUX32_16x1
+R0
+!i10b 1
+!s100 @6h0]^9bRgC=AHe[B^8<G2
+IFJaZX`k^T3]QOfV8jXKTe1
+R1
+R2
+R3
+R62
+R63
+R31
+R5
+r1
+!s85 0
+31
+R6
+R64
+R65
+!i113 1
+R7
+R8
+n@m@u@x32_16x1
+vMUX32_16x1_TB
+R9
+!i10b 1
+!s100 ]^PLGMY^IaeXbMPf_8?AK3
+Imk]C?2V1Z8XaEfK2ofDVQ0
+R1
+R2
+R10
+Z66 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mux_tb.v
+Z67 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mux_tb.v
+L0 54
+R5
+r1
+!s85 0
+31
+R12
+Z68 !s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mux_tb.v|
+Z69 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/mux_tb.v|
+!i113 1
+R7
+R8
+n@m@u@x32_16x1_@t@b
+vMUX32_2x1
+R0
+!i10b 1
+!s100 i;LbnXmo^C5`8_ZQbQ4g23
+I__b?C>6[GEd^I1deF2cXQ2
+R1
+R2
+R3
+R62
+R63
+L0 126
+R5
+r1
+!s85 0
+31
+R6
+R64
+R65
+!i113 1
+R7
+R8
+n@m@u@x32_2x1
+vMUX32_2x1_TB
+R9
+!i10b 1
+!s100 ^V5mEbX@4GOz@BgaA1<S61
+IVVmkFY6<bZn;C1ScW?l0>2
+R1
+R2
+R10
+R66
+R67
+L0 88
+R5
+r1
+!s85 0
+31
+R12
+R68
+R69
+!i113 1
+R7
+R8
+n@m@u@x32_2x1_@t@b
+vMUX32_32x1
+R0
+!i10b 1
+!s100 cXleUP5V3f3Ki34eVfW0g1
+ICEAUYTSC^KA;zIkPnF:920
+R1
+R2
+R3
+R62
+R63
+Z70 L0 17
+R5
+r1
+!s85 0
+31
+R6
+R64
+R65
+!i113 1
+R7
+R8
+n@m@u@x32_32x1
+vMUX32_32x1_TB
+R9
+!i10b 1
+!s100 <f=dG<@R56QJbKeJ1DcLj2
+I`:ngY[PZK9[iIjZ=B>Hja0
+R1
+R2
+R10
+R66
+R67
+R32
+R5
+r1
+!s85 0
+31
+R12
+R68
+R69
+!i113 1
+R7
+R8
+n@m@u@x32_32x1_@t@b
+vMUX32_4x1
+R0
+!i10b 1
+!s100 F@OcKnmn49WzcQhf>NU3I0
+IoC]LemY5MdJYzUOg5cGG63
+R1
+R2
+R3
+R62
+R63
+L0 104
+R5
+r1
+!s85 0
+31
+R6
+R64
+R65
+!i113 1
+R7
+R8
+n@m@u@x32_4x1
+vMUX32_8x1
+R0
+!i10b 1
+!s100 EaE?o??Hm__kG3IBehDPP3
+IaOjk<5PBO]ojE5m^^9lNZ2
+R1
+R2
+R3
+R62
+R63
+L0 77
+R5
+r1
+!s85 0
+31
+R6
+R64
+R65
+!i113 1
+R7
+R8
+n@m@u@x32_8x1
+vMUX64_2x1
+R0
+!i10b 1
+!s100 iic5Kb]4SA7kaN5<m[eNo1
+ICY9@]EHICj7l4@b31YJfO1
+R1
+R2
+R3
+R26
+R27
+L0 61
+R5
+r1
+!s85 0
+31
+R6
+R29
+R30
+!i113 1
+R7
+R8
+n@m@u@x64_2x1
+vNOR32_2x1
+R0
+!i10b 1
+!s100 ;DEm;PDXUL3J1T0HYaeJz1
+IH:4>GO79J5X]9`mNoa9cZ3
+R1
+R2
+R3
+R13
+R14
+L0 18
+R5
+r1
+!s85 0
+31
+R6
+R15
+R16
+!i113 1
+R7
+R8
+n@n@o@r32_2x1
+vNOR32_2x1_TB
+R0
+!i10b 1
+!s100 8g[WzWH1LCYgQmRn?gH?i3
+I??c`0SdP9TjaK@KP?j:9M0
+R1
+R2
+R10
+R17
+R18
+R70
+R5
+r1
+!s85 0
+31
+R6
+R20
+R21
+!i113 1
+R7
+R8
+n@n@o@r32_2x1_@t@b
+vOR32_2x1
+R0
+!i10b 1
+!s100 15M>6=gLHUh1<F9aH7Wc73
+I=mIkSoH0fU]Gh0KYAkj;80
+R1
+R2
+R3
+R13
+R14
+L0 80
+R5
+r1
+!s85 0
+31
+R6
+R15
+R16
+!i113 1
+R7
+R8
+n@o@r32_2x1
+vOR32_2x1_TB
+R0
+!i10b 1
+!s100 n_J5k85gjLQaVh]7Jkk_13
+IT^5cgD<a2^8JXkEE0jSUb2
+R1
+R2
+R10
+R17
+R18
+L0 114
+R5
+r1
+!s85 0
+31
+R6
+R20
+R21
+!i113 1
+R7
+R8
+n@o@r32_2x1_@t@b
+vPROC_CS147_SEC05
+R0
+!i10b 1
+!s100 VY9:L2cMX3;DK2FQTog=G3
+I`@3EhJOdDWPG61cX[fTkG0
+R1
+R2
+R3
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/processor.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/processor.v
+R28
+R5
+r1
+!s85 0
+31
+R6
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/processor.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/processor.v|
+!i113 1
+R7
+R8
+n@p@r@o@c_@c@s147_@s@e@c05
+vPROC_SM
+R0
+!i10b 1
+!s100 za7;7f90cRgISCOO`6EQM1
+I1oHA<bi_XH6iDAW2Hzf9U2
+R1
+R2
+R33
+R34
+R35
+L0 200
+R5
+r1
+!s85 0
+31
+R6
+R36
+R37
+!i113 1
+R7
+R8
+n@p@r@o@c_@s@m
+vRC_ADD_SUB_32
+R0
+!i10b 1
+!s100 4ezT4:fhgL9V4[FMH<4HB3
+In0;bLKlclkA59;C1hO2:V3
+R1
+R2
+R3
+Z71 8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/rc_add_sub_32.v
+Z72 FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/rc_add_sub_32.v
+L0 58
+R5
+r1
+!s85 0
+31
+R6
+Z73 !s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/rc_add_sub_32.v|
+Z74 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/rc_add_sub_32.v|
+!i113 1
+R7
+R8
+n@r@c_@a@d@d_@s@u@b_32
+vRC_ADD_SUB_32_TB
+R9
+!i10b 1
+!s100 kzm?]cO3LXfN1]eVbNf3X1
+I8bTP`3>0GSi4`PED6=F[e1
+R1
+R2
+w1727838658
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/rc_add_sub_32_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/rc_add_sub_32_tb.v
+R11
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/rc_add_sub_32_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/rc_add_sub_32_tb.v|
+!i113 1
+R7
+R8
+n@r@c_@a@d@d_@s@u@b_32_@t@b
+vRC_ADD_SUB_64
+R0
+!i10b 1
+!s100 Dkg]7KSWS?zl]MgnFSiAR1
+IYRC4oBYea=??Ug6g]6mDh0
+R1
+R2
+R3
+R71
+R72
+R28
+R5
+r1
+!s85 0
+31
+R6
+R73
+R74
+!i113 1
+R7
+R8
+n@r@c_@a@d@d_@s@u@b_64
+vREG1
+R0
+!i10b 1
+!s100 KLTTh5FI3oKAa26GMe3R33
+IRLeR?4CodOEUFd>=B5ijn2
+R1
+R2
+R3
+R38
+R39
+L0 106
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@r@e@g1
+vREG1_TB
+R0
+!i10b 1
+!s100 5RCooFNRQik]8P`oa=o7h2
+IR>n[6Y>o]V[5O3KXdV;MZ1
+R1
+R2
+R10
+R42
+R43
+L0 98
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@r@e@g1_@t@b
+vREG32
+R0
+!i10b 1
+!s100 E?VbVz^2[TnKgJc`9:[Vj3
+IFNoYa^E6BaHC@D0[FQU^Z1
+R1
+R2
+R3
+R38
+R39
+L0 79
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@r@e@g32
+vREG32_PP
+R0
+!i10b 1
+!s100 ]ZRNj]mCYCc[LDAzZ9@?`0
+IA_8MoHoJ7PnCDK2TKCbME2
+R1
+R2
+R46
+R47
+R48
+Z75 L0 293
+R5
+r1
+!s85 0
+31
+R6
+R49
+R50
+!i113 1
+R7
+R8
+n@r@e@g32_@p@p
+vREG32_TB
+R0
+!i10b 1
+!s100 b9Q<OQ@We@@El8EAW?GSJ1
+I;fmLi<lN]hDS;l^;Kb@6U3
+R1
+R2
+R10
+R42
+R43
+L0 51
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@r@e@g32_@t@b
+vREGISTER_FILE_32x32
+R0
+!i10b 1
+!s100 jDLgRX=40hzdVEJa0JLg02
+I[Vz=12ngAR;JaaYl^;Fb82
+R1
+R2
+w1732527891
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/register_file.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/register_file.v
+L0 32
+R5
+r1
+!s85 0
+31
+R6
+!s107 prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/register_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/register_file.v|
+!i113 1
+R7
+R8
+n@r@e@g@i@s@t@e@r_@f@i@l@e_32x32
+vRF_TB
+R9
+!i10b 1
+!s100 ajiz:=WzGRlQ87;Sk`eVb0
+I<hPK>LkTfOoo2:h^TmG?Q0
+R1
+R2
+R10
+8C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/register_file_tb.v
+FC:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/register_file_tb.v
+R28
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:\Users\nikha\OneDrive\Documents\New folder (2)\CS147-Project03\TESTBENCH\..\prj_definition.v|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/register_file_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/nikha/OneDrive/Documents/New folder (2)/CS147-Project03/TESTBENCH/register_file_tb.v|
+!i113 1
+R7
+R8
+n@r@f_@t@b
+vSHIFT32
+R0
+!i10b 1
+!s100 7EaTGDcC]IVcYl_6Qg7K]3
+IkdUg@JZ381Za@;ADX6?^V2
+R1
+R2
+R3
+R22
+R23
+R32
+R5
+r1
+!s85 0
+31
+R6
+R24
+R25
+!i113 1
+R7
+R8
+n@s@h@i@f@t32
+vSHIFT32_L
+R0
+!i10b 1
+!s100 4;CN`ic:RfiBY=L;mzHUO3
+I0V`mNRD:HfGa`]<n?7mCj2
+R1
+R2
+R3
+R22
+R23
+L0 119
+R5
+r1
+!s85 0
+31
+R6
+R24
+R25
+!i113 1
+R7
+R8
+n@s@h@i@f@t32_@l
+vSHIFT32_R
+R0
+!i10b 1
+!s100 az]3b6lKTcY5CDDNgmWOn3
+I6lEaeF7J5[BVS[[fZTnRI3
+R1
+R2
+R3
+R22
+R23
+L0 68
+R5
+r1
+!s85 0
+31
+R6
+R24
+R25
+!i113 1
+R7
+R8
+n@s@h@i@f@t32_@r
+vSR_LATCH
+R0
+!i10b 1
+!s100 SW]MiS=CMoLe?gLNUf1SL1
+Ib=UNCUYZ^MX5f:C>PJ_NS2
+R1
+R2
+R3
+R38
+R39
+L0 169
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@s@r_@l@a@t@c@h
+vSR_LATCH_TB
+R0
+!i10b 1
+!s100 _Tk:9SS3Qa83TRdLZUY1?2
+IJMacYd[0]YIL97eRcgj_D2
+R1
+R2
+R10
+R42
+R43
+L0 233
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@s@r_@l@a@t@c@h_@t@b
+vTWOSCOMP32
+R0
+!i10b 1
+!s100 lbUeT7hZEJcKG^nNcENQE3
+I8cc<EBeE:<eDfe`BB7?lA2
+R1
+R2
+R3
+R38
+R39
+R59
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@t@w@o@s@c@o@m@p32
+vTWOSCOMP32_TB
+R0
+!i10b 1
+!s100 _:C3m;<oNF<EdKSQoKZ6e0
+I4ZCWcRhg>kD9ISd[[mBJ42
+R1
+R2
+R10
+R42
+R43
+R75
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@t@w@o@s@c@o@m@p32_@t@b
+vTWOSCOMP64
+R0
+!i10b 1
+!s100 meJ@^NFHT:gR6OzHV4e7l3
+IFi8j9V?AkGDA@Oe;8n[7G0
+R1
+R2
+R3
+R38
+R39
+R70
+R5
+r1
+!s85 0
+31
+R6
+R40
+R41
+!i113 1
+R7
+R8
+n@t@w@o@s@c@o@m@p64
+vTWOSCOMP64_TB
+R0
+!i10b 1
+!s100 IO^io_0zPgZS;lMoaQP;H0
+I2NG0P:8dE@FAQI8lhMaD;1
+R1
+R2
+R10
+R42
+R43
+L0 319
+R5
+r1
+!s85 0
+31
+R6
+R44
+R45
+!i113 1
+R7
+R8
+n@t@w@o@s@c@o@m@p64_@t@b
