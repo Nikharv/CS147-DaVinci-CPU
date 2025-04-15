@@ -1,0 +1,253 @@
+// Name: control_unit.v
+// Module: CONTROL_UNIT
+// Output: CTRL  : Control signal for data path
+//         READ  : Memory read signal
+//         WRITE : Memory Write signal
+//
+// Input:  ZERO : Zero status from ALU
+//         CLK  : Clock signal
+//         RST  : Reset Signal
+//
+// Notes: - Control unit synchronize operations of a processor
+//          Assign each bit of control signal to control one part of data path
+//
+// Revision History:
+//
+// Version	Date		Who		email			note
+//------------------------------------------------------------------------------------------
+//  1.0     Sep 10, 2014	Kaushik Patra	kpatra@sjsu.edu		Initial creation
+//------------------------------------------------------------------------------------------
+`include "prj_definition.v"
+
+// Module: CONTROL_UNIT
+module CONTROL_UNIT(CTRL, READ, WRITE, ZERO, INSTRUCTION, CLK, RST); 
+    // Output signals
+    output [`CTRL_WIDTH_INDEX_LIMIT:0] CTRL;
+    output READ, WRITE; 
+    
+    // Input signals
+    input ZERO, CLK, RST;
+    input [`DATA_INDEX_LIMIT:0] INSTRUCTION;
+
+    // Internal registers
+    reg [`CTRL_WIDTH_INDEX_LIMIT:0] MEM_CTRL; // Memory control signal
+    reg MEM_READ, MEM_WRITE;                  // Read/Write signals
+    reg [5:0] op_code;                        // Opcode from instruction
+    reg [5:0] func_code;                      // Function code for R-type instructions
+
+    // State signal from the state machine
+    wire [2:0] proc_state;
+
+    // State machine instantiation
+    PROC_SM state_machine(proc_state, CLK, RST);
+
+    // Control unit logic
+    always @(proc_state) begin
+        // Extract opcode and function code from the instruction
+        op_code = INSTRUCTION[31:26];
+        func_code = INSTRUCTION[5:0];
+	
+        // FSM to handle processor states
+        case (proc_state)
+            // Fetch state: Perform memory read and set control signals
+            `PROC_FETCH: begin
+                MEM_READ = 1;
+                MEM_WRITE = 0;
+                MEM_CTRL = 32'h00200000;
+            end
+
+            // Decode state: Decode instruction and set appropriate control signals
+            `PROC_DECODE: begin
+                MEM_READ = 0;
+                MEM_WRITE = 0;
+                case (op_code)
+                    6'h0f: MEM_CTRL = 32'h00000010; // lui
+                    6'h02: MEM_CTRL = 32'h00000010; // jmp
+                    6'h03: MEM_CTRL = 32'h00000010; // jal
+                    6'h1B: MEM_CTRL = 32'h00000010; // push
+                    6'h1C: MEM_CTRL = 32'h00000010; // pop
+                    default: MEM_CTRL = 32'h00000050; // All other
+                endcase
+            end
+
+            // Execute state: Execute ALU operations or branch/jump instructions
+            `PROC_EXE: begin
+                MEM_READ = 0;
+                MEM_WRITE = 0;
+                case (op_code)
+                    6'h00: begin // R-type instructions
+                        case (func_code)
+                            6'h20: MEM_CTRL = 32'h00006040; // add
+                            6'h22: MEM_CTRL = 32'h0000A040; // sub
+                            6'h2c: MEM_CTRL = 32'h0000E040; // mul
+                            6'h24: MEM_CTRL = 32'h0001A040; // and
+                            6'h25: MEM_CTRL = 32'h0001E040; // or
+                            6'h27: MEM_CTRL = 32'h00022040; // nor
+                            6'h2a: MEM_CTRL = 32'h00026040; // slt
+                            6'h00: MEM_CTRL = 32'h00015440; // sll
+                            6'h02: MEM_CTRL = 32'h00011440; // srl
+                            6'h08: MEM_CTRL = 32'h00000040; // jr
+                        endcase
+                    end
+                    6'h08: MEM_CTRL = 32'h00004840; // addi
+                    6'h1d: MEM_CTRL = 32'h0000C840; // muli
+                    6'h0c: MEM_CTRL = 32'h00018040; // andi
+                    6'h0d: MEM_CTRL = 32'h0001C040; // ori
+                    6'h0f: MEM_CTRL = 32'h00000000; // lui
+                    6'h0a: MEM_CTRL = 32'h00024840; // slti
+                    6'h04: MEM_CTRL = 32'h0000A040; // beq
+                    6'h05: MEM_CTRL = 32'h0000A040; // bne
+                    6'h23: MEM_CTRL = 32'h00004840; // lw
+                    6'h2b: MEM_CTRL = 32'h00004840; // sw
+                    6'h02: MEM_CTRL = 32'h00000000; // jmp
+                    6'h03: MEM_CTRL = 32'h00000000; // jal
+                    6'h1b: MEM_CTRL = 32'h00009260; // push
+                    6'h1c: MEM_CTRL = 32'h00005200; // pop
+                endcase
+            end
+
+            // Memory state: Handle memory read or write operations
+            `PROC_MEM: begin
+                MEM_READ = 0;
+                MEM_WRITE = 0;
+                case (op_code)
+                    6'h23: begin
+                        MEM_READ = 1;
+                        MEM_WRITE = 0;
+                        MEM_CTRL = 32'h00004840; // lw
+                    end
+                    6'h2b: begin
+                        MEM_READ = 0;
+                        MEM_WRITE = 1;
+                        MEM_CTRL = 32'h00004840; // sw
+                    end
+                    6'h1b: begin
+                        MEM_READ = 0;
+                        MEM_WRITE = 1;
+                        MEM_CTRL = 32'h00509260; // push
+                    end
+                    6'h1c: begin
+                        MEM_READ = 1;
+                        MEM_WRITE = 0;
+                        MEM_CTRL = 32'h00005200; // pop
+                    end
+                endcase
+            end
+
+            // Write-back state: Update registers with computation or memory results
+            `PROC_WB: begin
+                MEM_READ = 0;
+                MEM_WRITE = 0;
+                case (op_code)
+                    6'h00: begin
+                        case (func_code)
+                            6'h20: MEM_CTRL = 32'h120060CB; // add
+                            6'h22: MEM_CTRL = 32'h1200A0CB; // sub
+                            6'h2c: MEM_CTRL = 32'h1200E0CB; // mul
+                            6'h24: MEM_CTRL = 32'h1201A0CB; // and
+                            6'h25: MEM_CTRL = 32'h1201E0CB; // or
+                            6'h27: MEM_CTRL = 32'h120220CB; // nor
+                            6'h2a: MEM_CTRL = 32'h120260CB; // slt
+                            6'h00: MEM_CTRL = 32'h120154CB; // sll
+                            6'h02: MEM_CTRL = 32'h120114CB; // srl
+                            6'h08: MEM_CTRL = 32'h00000049; // jr
+                        endcase
+                    end
+                    6'h08: MEM_CTRL = 32'h160048CB; // addi
+                    6'h1d: MEM_CTRL = 32'h1600C8CB; // muli
+                    6'h0c: MEM_CTRL = 32'h160180CB; // andi
+                    6'h0d: MEM_CTRL = 32'h1601C0CB; // ori
+                    6'h0f: MEM_CTRL = 32'h1700008B; // lui
+                    6'h0a: MEM_CTRL = 32'h160248CB; // slti
+                    6'h04: MEM_CTRL = ZERO ? 32'h0000A04D : 32'h0000A04B; // beq
+                    6'h05: MEM_CTRL = ZERO ? 32'h0000A04B : 32'h0000A04D; // bne
+                    6'h23: MEM_CTRL = 32'h168048CB; // lw
+                    6'h2b: MEM_CTRL = 32'h0000484B; // sw
+                    6'h02: MEM_CTRL = 32'h00000001; // jmp
+                    6'h03: MEM_CTRL = 32'h08000081; // jal
+                    6'h1b: MEM_CTRL = 32'h0000936B; // push
+                    6'h1c: MEM_CTRL = 32'h0280538B; // pop
+                endcase
+            end
+        endcase
+    end
+
+    // Assign final output signals
+    assign READ = MEM_READ;
+    assign WRITE = MEM_WRITE;
+    assign CTRL = MEM_CTRL;
+endmodule
+
+//------------------------------------------------------------------------------------------
+// Module: PROC_SM
+// Output: STATE      : State of the processor
+//         
+// Input:  CLK        : Clock signal
+//         RST        : Reset signal
+//
+// INOUT: MEM_DATA    : Data to be read in from or write to the memory
+//
+// Notes: - Processor continuously cycle witnin fetch, decode, execute, 
+//          memory, write back state. State values are in the prj_definition.v
+//
+// Revision History:
+//
+// Version	Date		Who		email			note
+//------------------------------------------------------------------------------------------
+//  1.0     Sep 10, 2014	Kaushik Patra	kpatra@sjsu.edu		Initial creation
+//------------------------------------------------------------------------------------------
+// Module: PROC_SM
+module PROC_SM(STATE, CLK, RST);
+    // Inputs
+    input CLK, RST;
+
+    // Outputs
+    output [2:0] STATE;
+
+    // Internal registers for state transitions
+    reg [2:0] NEXT_STATE;
+    reg [2:0] STATE;
+
+    // Initial state setup
+    initial begin
+        STATE = `PROC_FETCH;
+        NEXT_STATE = `PROC_FETCH;
+    end
+
+    // Reset logic
+    always @(negedge RST) begin
+        STATE = 3'hx;
+        NEXT_STATE = `PROC_FETCH;
+    end
+
+    // State transition logic
+    always @(posedge CLK) begin
+        case (NEXT_STATE)
+            `PROC_FETCH: begin
+                STATE = NEXT_STATE;
+                NEXT_STATE = `PROC_DECODE;
+            end
+            `PROC_DECODE: begin
+                STATE = NEXT_STATE;
+                NEXT_STATE = `PROC_EXE;
+            end
+            `PROC_EXE: begin
+                STATE = NEXT_STATE;
+                NEXT_STATE = `PROC_MEM;
+            end
+            `PROC_MEM: begin
+                STATE = NEXT_STATE;
+                NEXT_STATE = `PROC_WB;
+            end
+            `PROC_WB: begin
+                STATE = NEXT_STATE;
+                NEXT_STATE = `PROC_FETCH;
+            end
+            default: begin
+                STATE = 3'hx;
+                NEXT_STATE = `PROC_FETCH;
+            end
+        endcase
+    end
+endmodule
+

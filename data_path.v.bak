@@ -1,0 +1,347 @@
+// Name: data_path.v
+// Module: DATA_PATH
+// Output:  DATA : Data to be written at address ADDR
+//          ADDR : Address of the memory location to be accessed
+//
+// Input:   DATA : Data read out in the read operation
+//          CLK  : Clock signal
+//          RST  : Reset signal
+//
+// Notes: - 32 bit processor implementing cs147sec05 instruction set
+//
+// Revision History:
+//
+// Version	Date		Who		email			note
+//------------------------------------------------------------------------------------------
+//  1.0     Sep 10, 2014	Kaushik Patra	kpatra@sjsu.edu		Initial creation
+//------------------------------------------------------------------------------------------
+//
+`include "prj_definition.v"
+module DATA_PATH(DATA_OUT, ADDR, ZERO, INSTRUCTION, DATA_IN, CTRL, CLK, RST);
+
+// output list
+output [`ADDRESS_INDEX_LIMIT:0] ADDR;
+output ZERO;
+output [`DATA_INDEX_LIMIT:0] DATA_OUT, INSTRUCTION;
+
+// input list
+input [`CTRL_WIDTH_INDEX_LIMIT:0]  CTRL;
+input CLK, RST;
+input [`DATA_INDEX_LIMIT:0] DATA_IN;
+
+wire noCO;
+wire [31:0] r1_sel_mux_out;
+wire [31:0] wa_sel_1_mux_out;
+wire [31:0] wa_sel_2_mux_out;
+wire [31:0] wa_sel_3_mux_out;
+wire [31:0] op_1_sel_mux_out;
+wire [31:0] op_2_sel_1_mux_out;
+wire [31:0] op_2_sel_2_mux_out;
+wire [31:0] op_2_sel_3_mux_out;
+wire [31:0] op_2_sel_4_mux_out;
+wire [31:0] SP_out;
+wire [31:0] PC_out;
+wire [31:0] ALU_out;
+wire [31:0] INSTRUCTION_out;
+wire [31:0] r1_data_out;
+wire [31:0] r2_data_out;
+wire [31:0] wd_sel_1_mux_out;
+wire [31:0] wd_sel_2_mux_out;
+wire [31:0] wd_sel_3_mux_out;
+wire [31:0] md_sel_1_mux_out;
+wire [31:0] ma_sel_1_mux_out;
+wire [31:0] ma_sel_2_mux_out;
+wire [31:0] pc_sel_1_mux_out;
+wire [31:0] pc_sel_2_mux_out;
+wire [31:0] pc_sel_3_mux_out;
+wire [31:0] pc_plus_1_adder_out;
+wire [31:0] incremented_pc_plus_sign_extended_16_bit_immediate;
+
+// Increment PC by 1
+RC_ADD_SUB_32 pc_plus_1_adder(
+    .Y(pc_plus_1_adder_out), 
+    .CO(noCO), 
+    .A(PC_out), 
+    .B(32'b1), 
+    .SnA(1'b0)
+);
+
+// Incremented PC + sign extended 16 bit immediate
+RC_ADD_SUB_32 pc_plus_1_plus_16_bit_sign_ext_imm_adder(
+    .Y(incremented_pc_plus_sign_extended_16_bit_immediate),
+    .CO(noCO),
+    .A(pc_plus_1_adder_out),
+    .B({{16{INSTRUCTION_out[15]}}, INSTRUCTION_out[15:0]}),
+    .SnA(1'b0)
+);
+
+// Program Counter
+defparam pc_inst.PATTERN = `INST_START_ADDR;
+REG32_PP  pc_inst(
+    .Q(PC_out),
+    .D(pc_sel_3_mux_out),
+    .LOAD(CTRL[0]),
+    .CLK(CLK),
+    .RESET(RST)
+);
+
+// Select between R1 data and PC+1
+MUX32_2x1 select_bw_r1_and_pc_plus_one(
+    .Y(pc_sel_1_mux_out),
+    .I0(r1_data_out),
+    .I1(pc_plus_1_adder_out),
+    .S(CTRL[1])
+);
+
+// Select between pc_sel_1 and PC+1+16-bit sign extended immediate
+MUX32_2x1 select_bw_pc_sel_1_and_16_bit_sign_extended_imm(
+    .Y(pc_sel_2_mux_out),
+    .I0(pc_sel_1_mux_out),
+    .I1(incremented_pc_plus_sign_extended_16_bit_immediate),
+    .S(CTRL[2])
+);
+
+// Select between pc_sel_2 and 6 bit zero extended address
+MUX32_2x1 select_final_next_pc_address(
+    .Y(pc_sel_3_mux_out),
+    .I0({6'b0, INSTRUCTION_out[25:0]}),
+    .I1(pc_sel_2_mux_out),
+    .S(CTRL[3])
+);
+
+// Stack Pointer
+defparam sp_inst.PATTERN = `INIT_STACK_POINTER;
+REG32_PP  sp_inst(
+    .Q(SP_out),
+    .D(ALU_out),
+    .LOAD(CTRL[8]),
+    .CLK(CLK),
+    .RESET(RST)
+);
+
+// Sets up the instruction register
+D_LATCH32 instruction_register(
+    .Q(INSTRUCTION_out),
+    .Qbar(Qbar),
+    .D(DATA_IN),
+    .C(CTRL[4]),
+    .nR(RST)
+);
+
+// Copy the instruction from memory into the output INSTRUCTION
+BUF32_1x1 instruction_copy(
+    .Y(INSTRUCTION),
+    .A(DATA_IN)
+);
+
+// Select between the zero extended content of the RS register or 32 zeroes.
+MUX32_2x1 select_RS_or_32_BIT_ZEROES(
+    .Y(r1_sel_mux_out),
+    .I0({27'b0, INSTRUCTION_out[25:21]}),
+    .I1(32'd0),
+    .S(CTRL[5])
+);
+
+// Select between rt and rd registers for storing the result.
+MUX32_2x1 select_result_dest_reg_bw_rt_and_rd(
+    .Y(wa_sel_1_mux_out),
+    .I0({27'b0, INSTRUCTION_out[15:11]}),
+    .I1({27'b0, INSTRUCTION_out[20:16]}),
+    .S(CTRL[26])
+);
+
+// Select between registers 0 and 31 for destination.
+MUX32_2x1 select_result_dest_reg_bw_reg0_and_reg31(
+    .Y(wa_sel_2_mux_out),
+    .I0(32'd0), // Register 0
+    .I1(32'd31), // Register 31 (5 LSB all 1s)
+    .S(CTRL[27])
+);
+
+// Select the final destination register
+MUX32_2x1 select_final_result_dest_reg(
+    .Y(wa_sel_3_mux_out),
+    .I0(wa_sel_2_mux_out),
+    .I1(wa_sel_1_mux_out),
+    .S(CTRL[28])
+);
+
+// Select WB data between ALU and Memory
+MUX32_2x1 select_wb_data_from_alu_or_mem(
+    .Y(wd_sel_1_mux_out),
+    .I0(ALU_out),
+    .I1(DATA_IN),
+    .S(CTRL[23])
+);
+
+// Select between registers 0 and 31 for destination.
+MUX32_2x1 select_bw_16_bit_lsb_extend_imm_and_wd1(
+    .Y(wd_sel_2_mux_out),
+    .I0(wd_sel_1_mux_out),
+    .I1({INSTRUCTION_out[15:0], 16'b0}), // 16 bit immediate LSB zero extended
+    .S(CTRL[24])
+);
+
+// Select the final destination register
+MUX32_2x1 select_final_wb_data(
+    .Y(wd_sel_3_mux_out),
+    .I0(pc_plus_1_adder_out),
+    .I1(wd_sel_2_mux_out),
+    .S(CTRL[25])
+);
+
+// Set up the register file
+REGISTER_FILE_32x32 rf32_inst(
+    .DATA_R1(r1_data_out),
+    .DATA_R2(r2_data_out),
+    .ADDR_R1(r1_sel_mux_out[4:0]), // Either rs register or 0
+    .ADDR_R2(INSTRUCTION_out[20:16]), // rt register
+    .DATA_W(wd_sel_3_mux_out),
+    .ADDR_W(wa_sel_3_mux_out[4:0]),
+    .READ(CTRL[6]),
+    .WRITE(CTRL[7]),
+    .CLK(CLK),
+    .RST(RST)
+);
+
+// Select between shamt and 1
+MUX32_2x1 select_imm_bw_shamt_and_1(
+    .Y(op_2_sel_1_mux_out),
+    .I0(32'b1),
+    .I1({27'b0, INSTRUCTION_out[10:6]}), // 27-bit zero extended shamt
+    .S(CTRL[10])
+);
+
+// Select between sign or zero extended immediate
+MUX32_2x1 select_sign_or_zero_extended_imm(
+    .Y(op_2_sel_2_mux_out),
+    .I0({16'b0, INSTRUCTION_out[15:0]}), // 16-bit zero extended immediate
+    .I1({{16{INSTRUCTION_out[15]}}, INSTRUCTION_out[15:0]}), // 16-bit sign extended immediate
+    .S(CTRL[11])
+);
+
+// Select the final destination register
+MUX32_2x1 select_final_immediate(
+    .Y(op_2_sel_3_mux_out),
+    .I0(op_2_sel_2_mux_out),
+    .I1(op_2_sel_1_mux_out),
+    .S(CTRL[12])
+);
+
+// Select ALU operand 1
+MUX32_2x1 select_ALU_operand1(
+    .Y(op_1_sel_mux_out),
+    .I0(r1_data_out),
+    .I1(SP_out),
+    .S(CTRL[9])
+);
+
+// Select ALU operand 2
+MUX32_2x1 select_ALU_operand2(
+    .Y(op_2_sel_4_mux_out),
+    .I0(op_2_sel_3_mux_out),
+    .I1(r2_data_out),
+    .S(CTRL[13])
+);
+
+// Select between R1 data and R2 data for memory data out
+MUX32_2x1 select_mem_data_out(
+    .Y(DATA_OUT),
+    .I0(r2_data_out),
+    .I1(r1_data_out),
+    .S(CTRL[22])
+);
+
+// Initialize the ALU 
+ALU alu_inst(
+    .OUT(ALU_out),
+    .ZERO(ZERO), 
+    .OP1(op_1_sel_mux_out), 
+    .OP2(op_2_sel_4_mux_out), 
+    .OPRN(CTRL[19:14])
+);
+
+// Select where the memory address comes out between SP and ALU output.
+MUX32_2x1 select_bw_sp_and_alu_for_mem_out(
+    .Y(ma_sel_1_mux_out),
+    .I0(ALU_out),
+    .I1(SP_out),
+    .S(CTRL[20])
+);
+
+BUF32_1x1 pass_next_mem_addr(
+    .Y(ADDR),
+    .A(ma_sel_2_mux_out)
+);
+
+// Select where the memory address comes out between ma_sel_1_mux_out and PC.
+MUX32_2x1 select_bw_ma1_and_pc(
+    .Y(ma_sel_2_mux_out),
+    .I0(ma_sel_1_mux_out),
+    .I1(PC_out),
+    .S(CTRL[21])
+);
+
+endmodule
+
+// Used for PC and SP. Usage as such in data path:
+// PC: defparam pc_inst.PATTERN = `INST_START_ADDR;
+// REG32_PP  pc_inst(.Q(pc), .D(pc_3), .LOAD(pc_load), .CLK(CLK), .RESET(RST));
+//
+// SP: defparam sp_inst.PATTERN = `INIT_STACK_POINTER;
+// REG32_PP  sp_inst(.Q(sp), .D(alu_out), .LOAD(sp_load), .CLK(CLK), .RESET(RST));
+module REG32_PP(Q, D, LOAD, CLK, RESET);
+parameter PATTERN = 32'h00000000;
+output [31:0] Q;
+
+input CLK, LOAD;
+input [31:0] D;
+input RESET;
+
+wire [31:0] qbar;
+
+genvar i;
+generate 
+    for(i=0; i<32; i=i+1)
+    begin : reg32_gen_loop
+       if (PATTERN[i] == 0)
+              REG1 reg_inst(.Q(Q[i]), .Qbar(qbar[i]), .D(D[i]), .L(LOAD), .C(CLK), .nP(1'b1), .nR(RESET));    
+        else
+              REG1 reg_inst(.Q(Q[i]), .Qbar(qbar[i]), .D(D[i]), .L(LOAD), .C(CLK), .nP(RESET), .nR(1'b1));
+    end 
+endgenerate
+
+endmodule
+
+module D_LATCH32(Q, Qbar, D, C, nR);
+input [31:0] D;
+input C;
+input nR;
+
+output [31:0] Q;
+output [31:0] Qbar;
+
+wire [31:0] Qbar;
+
+genvar bit;
+generate 
+    for (bit = 0; bit < 32; bit = bit + 1) begin
+       D_LATCH d_latch_inst(.Q(Q[bit]), .Qbar(Qbar[bit]), .D(D[bit]), .C(C), .nP(1'b1), .nR(nR));
+    end 
+endgenerate
+
+endmodule
+
+module BUF32_1x1(Y, A);
+input [31:0] A; // The instruction to copy
+
+output [31:0] Y; // Where to copy the instruction to
+
+genvar bit;
+generate
+	for (bit = 0; bit < 32; bit = bit + 1) begin
+		buf instruction_copy_inst(Y[bit], A[bit]);
+	end
+endgenerate
+
+endmodule

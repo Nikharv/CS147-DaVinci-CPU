@@ -1,0 +1,53 @@
+// Debugging:
+
+always @(posedge CLK) begin
+        $display("Time: %t", $time);
+        
+        // Program Counter
+        $display("PC: Q=%h, D=%h, LOAD=%b, RESET=%b", pc_out, mux_inst3_out, CTRL[0], RST);
+
+        // Stack Pointer
+        $display("SP: Q=%h, D=%h, LOAD=%b, RESET=%b", sp_out, alu_out, CTRL[8], RST);
+
+        // Register File
+        $display("Register File: R1_ADDR=%b, R1_DATA=%h, R2_ADDR=%b, R2_DATA=%h, W_ADDR=%b, W_DATA=%h, READ=%b, WRITE=%b",
+                 mux_inst4_out[4:0], REG_FILE_R1_DATA_out, 
+                 INST_REG_out[20:16], REG_FILE_R2_DATA_out, 
+                 mux_inst8_out[4:0], mux_inst15_out, 
+                 CTRL[6], CTRL[7]);
+
+        // Instruction Register
+        $display("Instruction Register: Q=%h, D=%h, LOAD=%b, RESET=%b", INST_REG_out, DATA_IN, CTRL[4], RST);
+
+        // ALU
+        $display("ALU: OUT=%h, ZERO=%b, OP1=%h, OP2=%h, OPRN=%b", alu_out, ZERO, mux_inst5_out, mux_inst10_out, CTRL[19:14]);
+
+        // RC Adders
+        $display("Adder1: Y=%h, A=%h, B=%h", RC_ADD_SUB_32_inst1_out, 32'b1, pc_out);
+        $display("Adder2: Y=%h, A=%h, B=%h", RC_ADD_SUB_32_inst2_out, RC_ADD_SUB_32_inst1_out, {{16{INST_REG_out[15]}}, INST_REG_out[15:0]});
+
+        // MUXes
+        $display("MUX1: Y=%h, I0=%h, I1=%h, S=%b", mux_inst1_out, REG_FILE_R1_DATA_out, RC_ADD_SUB_32_inst1_out, CTRL[1]);
+        $display("MUX2: Y=%h, I0=%h, I1=%h, S=%b", mux_inst2_out, mux_inst1_out, RC_ADD_SUB_32_inst2_out, CTRL[2]);
+        $display("MUX3: Y=%h, I0=%h, I1=%h, S=%b", mux_inst3_out, {6'b0, INST_REG_out[25:0]}, mux_inst2_out, CTRL[3]);
+        $display("MUX4: Y=%h, I0=%h, I1=%h, S=%b", mux_inst4_out, {27'b0, INST_REG_out[25:21]}, 32'b0, CTRL[5]);
+        $display("MUX5: Y=%h, I0=%h, I1=%h, S=%b", mux_inst5_out, REG_FILE_R1_DATA_out, sp_out, CTRL[9]);
+        $display("MUX6: Y=%h, I0=%h, I1=%h, S=%b", mux_inst6_out, mux_inst11_out, pc_out, CTRL[21]);
+        $display("MUX7: Y=%h, I0=%h, I1=%h, S=%b", mux_inst7_out, {27'b0, INST_REG_out[15:11]}, {27'b0, INST_REG_out[20:16]}, CTRL[26]);
+        $display("MUX8: Y=%h, I0=%h, I1=%h, S=%b", mux_inst8_out, mux_inst9_out, mux_inst7_out, CTRL[28]);
+        $display("MUX9: Y=%h, I0=%h, I1=%h, S=%b", mux_inst9_out, 32'b0, 32'd31, CTRL[27]);
+        $display("MUX10: Y=%h, I0=%h, I1=%h, S=%b", mux_inst10_out, mux_inst15_out, REG_FILE_R2_DATA_out, CTRL[13]);
+        $display("MUX11: Y=%h, I0=%h, I1=%h, S=%b", mux_inst11_out, alu_out, sp_out, CTRL[20]);
+        $display("MUX12: Y=%h, I0=%h, I1=%h, S=%b", mux_inst12_out, alu_out, DATA_IN, CTRL[23]);
+        $display("MUX13: Y=%h, I0=%h, I1=%h, S=%b", mux_inst13_out, REG_FILE_R2_DATA_out, REG_FILE_R1_DATA_out, CTRL[22]);
+        $display("MUX14: Y=%h, I0=%h, I1=%h, S=%b", mux_inst14_out, 32'b1, {27'b0, INST_REG_out[10:6]}, CTRL[10]);
+        $display("MUX15: Y=%h, I0=%h, I1=%h, S=%b", mux_inst15_out, mux_inst16_out, mux_inst14_out, CTRL[12]);
+        $display("MUX16: Y=%h, I0=%h, I1=%h, S=%b", mux_inst16_out, {16'b0, INST_REG_out[15:0]}, {{16{INST_REG_out[15]}}, INST_REG_out[15:0]}, CTRL[11]);
+        $display("MUX17: Y=%h, I0=%h, I1=%h, S=%b", mux_inst17_out, mux_inst12_out, {INST_REG_out[15:0], 16'b0}, CTRL[24]);
+        $display("MUX18: Y=%h, I0=%h, I1=%h, S=%b", mux_inst18_out, RC_ADD_SUB_32_inst1_out, mux_inst17_out, CTRL[25]);
+
+        // Output Buffers
+        $display("Instruction Output Buffer: INSTRUCTION=%h, DATA_IN=%h", INSTRUCTION, DATA_IN);
+        $display("Data Output Buffer: DATA_OUT=%h, mux_inst13_out=%h", DATA_OUT, mux_inst13_out);
+        $display("Address Output Buffer: ADDR=%h, mux_inst18_out=%h", ADDR, mux_inst18_out[4:0]);
+end
